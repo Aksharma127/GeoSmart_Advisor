@@ -10,9 +10,10 @@
 ![Status](https://img.shields.io/badge/Status-Active-6366F1?style=flat-square)
 
 GeoSmart Advisor is a four-layer intelligence system that scores any geographic coordinate on its commercial viability for a given business category. It combines real-time OpenStreetMap infrastructure data, asynchronous multi-source ingestion, a Julia-powered spatial matrix engine with custom human-centric loss functions, and a locally-hosted quantized Small Language Model to produce structured, narrative-grade site intelligence reports — entirely without cloud API dependencies or recurring cost.
-<video src="video.mp4" controls width="100%"></video>
----
 
+
+---
+![](video.mp4)
 ## Performance Metrics
 
 | Metric | Value |
