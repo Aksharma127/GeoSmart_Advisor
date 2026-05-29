@@ -1,0 +1,1 @@
+"""GeoSmart Advisor gateway API."""

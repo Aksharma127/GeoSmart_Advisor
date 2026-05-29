@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  geosmart-core:
+    build:
+      context: ./core
+    ports:
+      - "8001:8001"
+
+  geosmart-pipeline:
+    build:
+      context: ./pipeline
+    env_file:
+      - .env
+    environment:
+      JULIA_URL: http://geosmart-core:8001
+    depends_on:
+      - geosmart-core
+    ports:
+      - "8002:8002"
+
+  geosmart-slm:
+    build:
+      context: ./intelligence
+    environment:
+      OLLAMA_HOST: host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8003:8003"
+
+  geosmart-api:
+    build:
+      context: ./api
+    environment:
+      PIPELINE_URL: http://geosmart-pipeline:8002
+      JULIA_URL: http://geosmart-core:8001
+      SLM_URL: http://geosmart-slm:8003
+    depends_on:
+      - geosmart-core
+      - geosmart-pipeline
+      - geosmart-slm
+    ports:
+      - "8000:8000"
+
+  geosmart-frontend:
+    build:
+      context: ./frontend
+    environment:
+      VITE_API_URL: http://localhost:8000
+      VITE_BAI_URL: http://localhost:8004
+    depends_on:
+      - geosmart-api
+    ports:
+      - "3000:3000"

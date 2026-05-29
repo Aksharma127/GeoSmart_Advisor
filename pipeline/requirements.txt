@@ -1,0 +1,14 @@
+# asyncio is part of the Python standard library.
+langgraph
+langchain-core
+httpx
+duckdb
+redis
+python-dotenv
+pydantic
+geopy
+shapely
+orjson
+loguru
+fastapi
+uvicorn

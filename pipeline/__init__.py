@@ -1,0 +1,1 @@
+"""GeoSmart Advisor ingestion pipeline."""
