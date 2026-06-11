@@ -13,7 +13,7 @@ GeoSmart Advisor is a four-layer intelligence system that scores any geographic 
 
 
 ---
-![demo video](video.mp4)
+![demo video](video.gif)
 ## Performance Metrics
 
 | Metric | Value |
